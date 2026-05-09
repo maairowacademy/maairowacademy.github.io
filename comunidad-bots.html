@@ -267,21 +267,23 @@
 
     .carousel-wrapper {
       position: relative;
-      width: 100%;
+      width: calc(100% + 18px);
+      margin: 0 -9px;
       overflow: hidden;
       border-radius: 16px;
     }
 
     .carousel-track {
       display: flex;
-      gap: 18px;
       transition: transform .6s cubic-bezier(.4, 0, .2, 1);
       will-change: transform;
+      touch-action: pan-y;
     }
 
     .carousel-slide {
-      flex: 0 0 calc(33.333% - 12px);
-      width: calc(33.333% - 12px);
+      flex: 0 0 33.3333%;
+      width: 33.3333%;
+      padding: 0 9px;
       display: flex;
       justify-content: center;
       align-items: stretch;
@@ -571,8 +573,8 @@
       }
 
       .carousel-slide {
-        flex: 0 0 calc(50% - 10px);
-        width: calc(50% - 10px);
+        flex: 0 0 50%;
+        width: 50%;
       }
     }
 
@@ -861,8 +863,7 @@
       }
 
       function updateCarousel() {
-        const gap = 18;
-        const slideWidth = slides[0].offsetWidth + gap;
+        const slideWidth = slides[0].offsetWidth;
         current = Math.min(current, getMaxIndex());
         track.style.transform = `translateX(-${current * slideWidth}px)`;
 
