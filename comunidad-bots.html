@@ -280,7 +280,8 @@
     }
 
     .carousel-slide {
-      min-width: calc(33.333% - 12px);
+      flex: 0 0 calc(33.333% - 12px);
+      width: calc(33.333% - 12px);
       display: flex;
       justify-content: center;
       align-items: stretch;
@@ -366,6 +367,7 @@
       color: #10b981; /* Verde esmeralda para destacar rentabilidad */
       font-size: 15px;
       font-weight: 800;
+      white-space: nowrap;
     }
     
     .audit-stats .stat-value.drawdown {
@@ -378,6 +380,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: .5px;
+      white-space: nowrap;
     }
 
     .testimonial-card {
@@ -568,7 +571,8 @@
       }
 
       .carousel-slide {
-        min-width: calc(50% - 10px);
+        flex: 0 0 calc(50% - 10px);
+        width: calc(50% - 10px);
       }
     }
 
@@ -600,7 +604,8 @@
       }
 
       .carousel-slide {
-        min-width: 85%;
+        flex: 0 0 85%;
+        width: 85%;
       }
 
       .carousel-controls {
