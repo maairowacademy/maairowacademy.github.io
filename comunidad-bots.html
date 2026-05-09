@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Comunidad de Bots | MaairowAcademy</title>
   <meta name="description" content="Accede a nuestra comunidad de trading algorítmico.">
+
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap");
 
@@ -30,14 +31,21 @@
       background: var(--black);
     }
 
+    body,
+    main,
+    section {
+      max-width: 100%;
+      overflow-x: clip;
+    }
+
     body {
       min-width: 320px;
-      overflow-x: hidden;
       color: var(--text);
       font-family: "Onest", system-ui, sans-serif;
       background:
         url("data:image/svg+xml,%3Csvg width='420' height='520' viewBox='0 0 420 520' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.065' stroke-width='5' stroke-linecap='round'%3E%3Cpath d='M96 -58C170 34 138 106 73 158C7 210 -9 274 65 334C139 394 160 458 83 579'/%3E%3Cpath d='M274 -58C348 34 316 106 251 158C185 210 169 274 243 334C317 394 338 458 261 579'/%3E%3Cpath d='M452 -58C526 34 494 106 429 158C363 210 347 274 421 334C495 394 516 458 439 579'/%3E%3C/g%3E%3C/svg%3E") center top / 420px 520px repeat,
         var(--black);
+
       -webkit-font-smoothing: antialiased;
       text-rendering: geometricPrecision;
     }
@@ -61,14 +69,12 @@
       background: rgba(13, 13, 13, .93);
       border-bottom: 1px solid rgba(255, 255, 255, .1);
       backdrop-filter: blur(12px);
-      animation: slideDown .5s ease both;
     }
 
     .nav a {
       font-size: 15px;
       font-weight: 500;
       color: rgba(255, 255, 255, .78);
-      transition: color .2s;
     }
 
     .nav a:hover,
@@ -78,7 +84,6 @@
 
     .section {
       width: 100%;
-      overflow: hidden;
       padding: 0 32px;
       display: grid;
       place-items: center;
@@ -107,10 +112,6 @@
       font-size: clamp(32px, 5.5vw, 64px);
       line-height: .98;
       font-weight: 800;
-      letter-spacing: 0;
-      overflow-wrap: break-word;
-      opacity: 0;
-      animation: fadeUp .7s .15s ease both;
     }
 
     .video-shell {
@@ -122,11 +123,6 @@
       background:
         linear-gradient(180deg, rgba(121, 84, 255, .16), rgba(0, 0, 0, .15)),
         #000;
-      box-shadow:
-        0 30px 90px rgba(0, 0, 0, .52),
-        0 0 0 1px rgba(121, 84, 255, .06);
-      opacity: 0;
-      animation: fadeUp .7s .3s ease both;
     }
 
     .video-frame {
@@ -134,41 +130,6 @@
       width: 100%;
       aspect-ratio: 16 / 9;
       background: #000;
-    }
-
-    .video-placeholder {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      padding: 28px;
-      text-align: center;
-      background:
-        radial-gradient(circle at 50% 35%, rgba(121, 84, 255, .2), transparent 35%),
-        linear-gradient(180deg, #1f1f22, #101012);
-    }
-
-    .video-placeholder span {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 62px;
-      height: 62px;
-      margin-bottom: 18px;
-      border-radius: 50%;
-      background: #f7f7f7;
-      color: #151515;
-      font-size: 22px;
-      font-weight: 900;
-      box-shadow: 0 18px 50px rgba(0, 0, 0, .35);
-    }
-
-    .video-placeholder p {
-      max-width: 440px;
-      color: rgba(255, 255, 255, .72);
-      font-size: 15px;
-      line-height: 1.55;
-      font-weight: 500;
     }
 
     .video-frame iframe {
@@ -182,8 +143,6 @@
     .hero-action {
       width: min(320px, 100%);
       margin-top: 34px;
-      opacity: 0;
-      animation: fadeUp .7s .45s ease both;
     }
 
     .button {
@@ -199,41 +158,10 @@
       font-size: 15px;
       font-weight: 800;
       text-align: center;
-      transition: background .2s, transform .15s;
-      box-shadow: 0 14px 45px rgba(255, 255, 255, .08);
-    }
-
-    .button:hover {
-      background: #fff;
-      transform: scale(1.02);
-    }
-
-    .divider {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 0 32px;
-    }
-
-    .divider-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(121, 84, 255, .35), rgba(255, 255, 255, .1), transparent);
-    }
-
-    .divider-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--purple);
-      opacity: .6;
-      flex-shrink: 0;
     }
 
     .showcase {
       padding: 82px 32px 92px;
-      min-height: auto;
     }
 
     .showcase-inner {
@@ -254,23 +182,21 @@
       color: var(--purple);
       font-size: 13px;
       font-weight: 600;
-      letter-spacing: .5px;
-      text-transform: uppercase;
       margin-bottom: 20px;
     }
 
     .section-header h2 {
       font-size: clamp(28px, 4.8vw, 48px);
       font-weight: 800;
-      line-height: 1.05;
     }
 
     .carousel-wrapper {
       position: relative;
-      width: calc(100% + 18px);
+      width: 100%;
       margin: 0 -9px;
       overflow: hidden;
       border-radius: 16px;
+      max-width: 100%;
     }
 
     .carousel-track {
@@ -278,6 +204,10 @@
       transition: transform .6s cubic-bezier(.4, 0, .2, 1);
       will-change: transform;
       touch-action: pan-y;
+      -webkit-overflow-scrolling: touch;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+      min-width: 0;
     }
 
     .carousel-slide {
@@ -287,20 +217,19 @@
       display: flex;
       justify-content: center;
       align-items: stretch;
+      min-width: 0;
     }
 
-    .audit-card {
+    .audit-card,
+    .testimonial-card {
       width: 100%;
-      max-width: 320px;
+      min-width: 0;
       overflow: hidden;
       border-radius: 14px;
       border: 1px solid var(--card-border);
       background:
         linear-gradient(180deg, rgba(255, 255, 255, .12), rgba(31, 0, 84, .28) 34%, rgba(5, 5, 5, .98) 100%),
         var(--panel);
-      box-shadow:
-        0 20px 60px rgba(0, 0, 0, .4),
-        0 0 0 1px rgba(121, 84, 255, .08);
     }
 
     .audit-card img,
@@ -308,31 +237,10 @@
       width: 100%;
       display: block;
       object-fit: cover;
-      background: rgba(255, 255, 255, .04);
-    }
-
-    .audit-card img.is-missing,
-    .testimonial-card img.is-missing {
-      display: none;
-    }
-
-    .image-placeholder {
-      display: grid;
-      place-items: center;
-      min-height: 290px;
-      padding: 22px;
-      color: rgba(255, 255, 255, .45);
-      font-size: 13px;
-      font-weight: 700;
-      text-align: center;
-      background:
-        radial-gradient(circle at top, rgba(121, 84, 255, .17), transparent 38%),
-        rgba(255, 255, 255, .035);
     }
 
     .audit-card img {
       aspect-ratio: 1654 / 646;
-      object-position: center;
     }
 
     .audit-card figcaption {
@@ -340,7 +248,6 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      text-align: left;
     }
 
     .audit-title {
@@ -356,57 +263,31 @@
       background: rgba(255, 255, 255, .03);
       padding: 10px 14px;
       border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, .05);
     }
 
-    .audit-stats .stat {
+    .stat {
       display: flex;
       flex-direction: column;
       gap: 2px;
     }
 
-    .audit-stats .stat-value {
-      color: #10b981; /* Verde esmeralda para destacar rentabilidad */
+    .stat-value {
+      color: #10b981;
       font-size: 15px;
       font-weight: 800;
-      white-space: nowrap;
-    }
-    
-    .audit-stats .stat-value.drawdown {
-      color: #ef4444; /* Rojo para el drawdown */
     }
 
-    .audit-stats .stat-label {
+    .drawdown {
+      color: #ef4444;
+    }
+
+    .stat-label {
       color: rgba(255, 255, 255, .5);
       font-size: 11px;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-      white-space: nowrap;
-    }
-
-    .testimonial-card {
-      width: 100%;
-      max-width: 280px;
-      overflow: hidden;
-      border-radius: 14px;
-      border: 1px solid var(--card-border);
-      background: var(--panel);
-      box-shadow:
-        0 20px 60px rgba(0, 0, 0, .4),
-        0 0 0 1px rgba(121, 84, 255, .08);
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
-
-    .testimonial-card:hover {
-      transform: scale(1.015);
-      box-shadow:
-        0 28px 70px rgba(0, 0, 0, .5),
-        0 0 0 1px rgba(121, 84, 255, .15);
     }
 
     .testimonial-card img {
-      aspect-ratio: auto;
       max-height: 500px;
       object-fit: contain;
       background: transparent;
@@ -431,16 +312,6 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all .25s ease;
-      flex-shrink: 0;
-      backdrop-filter: blur(8px);
-    }
-
-    .carousel-btn:hover {
-      background: rgba(121, 84, 255, .2);
-      border-color: rgba(121, 84, 255, .4);
-      color: #fff;
-      transform: scale(1.08);
     }
 
     .carousel-btn svg {
@@ -449,8 +320,6 @@
       fill: none;
       stroke: currentColor;
       stroke-width: 2.2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
     }
 
     .carousel-dots {
@@ -466,15 +335,12 @@
       background: rgba(255, 255, 255, .18);
       border: none;
       cursor: pointer;
-      transition: all .3s ease;
-      padding: 0;
     }
 
     .carousel-dot.active {
       width: 28px;
       border-radius: 10px;
       background: var(--purple);
-      box-shadow: 0 0 12px rgba(121, 84, 255, .4);
     }
 
     .carousel-progress {
@@ -503,82 +369,31 @@
       background: rgba(13, 13, 13, .95);
       color: rgba(255, 255, 255, .45);
       font-size: 13px;
-      font-weight: 500;
       text-align: center;
     }
 
-    .scroll-reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .65s ease, transform .65s ease;
-    }
-
-    .scroll-reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-12px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(22px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     @media (max-width: 860px) {
+      .carousel-slide {
+        flex: 0 0 50%;
+        width: 50%;
+      }
+
       .section {
         padding-left: 20px;
         padding-right: 20px;
       }
 
-      .nav {
-        gap: 22px;
-      }
-
-      .bots-hero {
-        min-height: auto;
-        padding-top: 96px;
-        padding-bottom: 64px;
-      }
-
-      .bots-hero h1 {
-        max-width: min(720px, calc(100vw - 40px));
-        font-size: clamp(28px, 8vw, 48px);
-      }
-
-      .video-shell {
-        margin-top: 36px;
-        border-radius: 14px;
-      }
-
       .showcase {
         padding: 62px 20px 76px;
-      }
-
-      .carousel-slide {
-        flex: 0 0 50%;
-        width: 50%;
       }
     }
 
     @media (max-width: 520px) {
+      .carousel-slide {
+        flex: 0 0 100%;
+        width: 100%;
+      }
+
       .nav {
         gap: 14px;
       }
@@ -587,216 +402,257 @@
         font-size: 13px;
       }
 
-      .bots-hero h1 {
-        max-width: min(330px, calc(100vw - 40px));
-        font-size: clamp(24px, 7.5vw, 34px);
-        line-height: 1.04;
-      }
-
-      .hero-action {
-        width: 100%;
-      }
-
-      .section-header {
-        margin-bottom: 32px;
-      }
-
-      .section-header h2 {
-        font-size: clamp(28px, 9vw, 38px);
-      }
-
-      .carousel-slide {
-        flex: 0 0 100%;
-        width: 100%;
-      }
-
-      .audit-card figcaption {
-        padding: 14px 16px;
-      }
-
       .audit-stats {
         flex-direction: column;
-        gap: 8px;
-        padding: 10px 12px;
       }
 
-      .audit-stats .stat {
+      .stat {
         flex-direction: row-reverse;
         justify-content: space-between;
         align-items: center;
-      }
-
-      .carousel-controls {
-        gap: 10px;
-        margin-top: 22px;
-      }
-
-      .carousel-btn {
-        width: 34px;
-        height: 34px;
-      }
-
-      .carousel-dot {
-        width: 7px;
-        height: 7px;
-      }
-
-      .carousel-dot.active {
-        width: 22px;
       }
     }
   </style>
 </head>
 
 <body>
-  <nav class="nav" aria-label="Principal">
-    <a href="https://maairowacademy.com">Inicio</a>
+
+  <nav class="nav">
+    <a href="index.html">Inicio</a>
     <a href="comunidad-bots.html" aria-current="page">Comunidad de bots</a>
+    <a href="#testimonios">Testimonios</a>
   </nav>
 
   <main>
-    <section class="section bots-hero" id="inicio">
+
+    <section class="section bots-hero">
       <div class="bots-hero-inner">
-        <h1>Accede a nuestra comunidad de <span class="accent">trading algorítmico</span></h1>
+
+        <h1>
+          Accede a nuestra comunidad de
+          <span class="accent">trading algorítmico</span>
+        </h1>
 
         <div class="video-shell">
           <div class="video-frame">
-            <iframe src="https://www.youtube.com/embed/GOiuNworoB8" title="Comunidad de trading algorítmico" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe
+              src="https://www.youtube.com/embed/GOiuNworoB8"
+              allowfullscreen>
+            </iframe>
           </div>
         </div>
 
         <div class="hero-action">
-          <a class="button" href="https://buy.stripe.com/4gMcN5bf5diHcyJcJI4AU31" target="_blank" rel="noopener noreferrer">Acceder por 159€/año</a>
+          <a class="button"
+             href="https://buy.stripe.com/4gMcN5bf5diHcyJcJI4AU31"
+             target="_blank">
+            Acceder por 159€/año
+          </a>
         </div>
+
       </div>
     </section>
 
-    <div class="divider scroll-reveal" aria-hidden="true">
-      <span class="divider-line"></span>
-      <span class="divider-dot"></span>
-      <span class="divider-dot" style="opacity:.3"></span>
-      <span class="divider-dot" style="opacity:.15"></span>
-      <span class="divider-line"></span>
-    </div>
+    <section class="section showcase">
 
-    <section class="section showcase" id="cuentas-auditadas" aria-label="Cuentas auditadas">
-      <div class="showcase-inner scroll-reveal">
+      <div class="showcase-inner">
+
         <div class="section-header">
-          <span class="section-label">Resultados auditados</span>
-          <h2>Nuestras cuentas <span class="accent">auditadas</span></h2>
+          <span class="section-label">
+            Resultados auditados
+          </span>
+
+          <h2>
+            Nuestras cuentas
+            <span class="accent">auditadas</span>
+          </h2>
         </div>
 
         <div class="carousel" data-carousel data-autoplay="false">
+
           <div class="carousel-wrapper">
+
             <div class="carousel-track">
+
               <div class="carousel-slide">
                 <figure class="audit-card">
-                  <img src="assets/auditada-axi-select.png" alt="Cuenta auditada Bot GPT Axi Select" loading="lazy" data-placeholder="assets/auditada-axi-select.png">
+                  <img src="assets/auditada-axi-select.png">
                   <figcaption>
-                    <div class="audit-title">Bot GPT Axi Select</div>
+                    <div class="audit-title">
+                      Bot GPT Axi Select
+                    </div>
+
                     <div class="audit-stats">
-                      <div class="stat"><span class="stat-value">+14.60%</span><span class="stat-label">Rentabilidad</span></div>
-                      <div class="stat"><span class="stat-value drawdown">4.55%</span><span class="stat-label">Drawdown</span></div>
+                      <div class="stat">
+                        <span class="stat-value">+14.60%</span>
+                        <span class="stat-label">Rentabilidad</span>
+                      </div>
+
+                      <div class="stat">
+                        <span class="stat-value drawdown">4.55%</span>
+                        <span class="stat-label">Drawdown</span>
+                      </div>
                     </div>
                   </figcaption>
                 </figure>
               </div>
+
               <div class="carousel-slide">
                 <figure class="audit-card">
-                  <img src="assets/auditada-rawxau.png" alt="Cuenta auditada Bot RAW XAU" loading="lazy" data-placeholder="assets/auditada-rawxau.png">
+                  <img src="assets/auditada-rawxau.png">
                   <figcaption>
-                    <div class="audit-title">Bot RAW XAU</div>
+                    <div class="audit-title">
+                      Bot RAW XAU
+                    </div>
+
                     <div class="audit-stats">
-                      <div class="stat"><span class="stat-value">+699.11%</span><span class="stat-label">Rentabilidad</span></div>
-                      <div class="stat"><span class="stat-value drawdown">18.55%</span><span class="stat-label">Drawdown</span></div>
+                      <div class="stat">
+                        <span class="stat-value">+699.11%</span>
+                        <span class="stat-label">Rentabilidad</span>
+                      </div>
+
+                      <div class="stat">
+                        <span class="stat-value drawdown">18.55%</span>
+                        <span class="stat-label">Drawdown</span>
+                      </div>
                     </div>
                   </figcaption>
                 </figure>
               </div>
+
               <div class="carousel-slide">
                 <figure class="audit-card">
-                  <img src="assets/auditada-portfolio-pro.png" alt="Cuenta auditada Portfolio PRO" loading="lazy" data-placeholder="assets/auditada-portfolio-pro.png">
+                  <img src="assets/auditada-portfolio-pro.png">
                   <figcaption>
-                    <div class="audit-title">Portfolio PRO</div>
+                    <div class="audit-title">
+                      Portfolio PRO
+                    </div>
+
                     <div class="audit-stats">
-                      <div class="stat"><span class="stat-value">+14.60%</span><span class="stat-label">Rentabilidad</span></div>
-                      <div class="stat"><span class="stat-value drawdown">4.55%</span><span class="stat-label">Drawdown</span></div>
+                      <div class="stat">
+                        <span class="stat-value">+14.60%</span>
+                        <span class="stat-label">Rentabilidad</span>
+                      </div>
+
+                      <div class="stat">
+                        <span class="stat-value drawdown">4.55%</span>
+                        <span class="stat-label">Drawdown</span>
+                      </div>
                     </div>
                   </figcaption>
                 </figure>
               </div>
+
             </div>
+
           </div>
 
           <div class="carousel-controls">
-            <button class="carousel-btn" data-prev aria-label="Cuenta anterior">
-              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+
+            <button class="carousel-btn" data-prev>
+              <svg viewBox="0 0 24 24">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
             </button>
+
             <div class="carousel-dots" data-dots></div>
-            <button class="carousel-btn" data-next aria-label="Siguiente cuenta">
-              <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18" /></svg>
+
+            <button class="carousel-btn" data-next>
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 6 15 12 9 18" />
+              </svg>
             </button>
+
           </div>
 
           <div class="carousel-progress">
             <div class="carousel-progress-bar" data-progress></div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <div class="divider scroll-reveal" aria-hidden="true">
-      <span class="divider-line"></span>
-      <span class="divider-dot" style="opacity:.15"></span>
-      <span class="divider-dot" style="opacity:.3"></span>
-      <span class="divider-dot"></span>
-      <span class="divider-line"></span>
+        </div>
+
+      </div>
+
+    </section>
+<section class="section showcase" id="testimonios">
+
+  <div class="showcase-inner">
+
+    <div class="section-header">
+      <span class="section-label">
+        Testimonios
+      </span>
+
+      <h2>
+        Opiniones de nuestra
+        <span class="accent">comunidad de bots</span>
+      </h2>
     </div>
 
-    <section class="section showcase" id="testimonios" aria-label="Testimonios comunidad bots">
-      <div class="showcase-inner scroll-reveal">
-        <div class="section-header">
-          <span class="section-label">Testimonios</span>
-          <h2>Opiniones de nuestra <span class="accent">comunidad de bots</span></h2>
+    <div class="carousel" data-carousel>
+
+      <div class="carousel-wrapper">
+
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+            <figure class="testimonial-card">
+              <img
+                src="assets/testimonio-1.png"
+                alt="Testimonio 1"
+                loading="lazy">
+            </figure>
+          </div>
+
+          <div class="carousel-slide">
+            <figure class="testimonial-card">
+              <img
+                src="assets/testimonio-2.png"
+                alt="Testimonio 2"
+                loading="lazy">
+            </figure>
+          </div>
+
+          <div class="carousel-slide">
+            <figure class="testimonial-card">
+              <img
+                src="assets/testimonio-3.png"
+                alt="Testimonio 3"
+                loading="lazy">
+            </figure>
+          </div>
+
         </div>
 
-        <div class="carousel" data-carousel>
-          <div class="carousel-wrapper">
-            <div class="carousel-track">
-              <div class="carousel-slide">
-                <figure class="testimonial-card">
-                  <img src="assets/testimonio-1.png" alt="Testimonio comunidad de bots 1" loading="lazy" data-placeholder="assets/testimonio-1.png">
-                </figure>
-              </div>
-              <div class="carousel-slide">
-                <figure class="testimonial-card">
-                  <img src="assets/testimonio-2.png" alt="Testimonio comunidad de bots 2" loading="lazy" data-placeholder="assets/testimonio-2.png">
-                </figure>
-              </div>
-              <div class="carousel-slide">
-                <figure class="testimonial-card">
-                  <img src="assets/testimonio-3.png" alt="Testimonio comunidad de bots 3" loading="lazy" data-placeholder="assets/testimonio-3.png">
-                </figure>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-controls">
-            <button class="carousel-btn" data-prev aria-label="Testimonio anterior">
-              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
-            </button>
-            <div class="carousel-dots" data-dots></div>
-            <button class="carousel-btn" data-next aria-label="Siguiente testimonio">
-              <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18" /></svg>
-            </button>
-          </div>
-
-          <div class="carousel-progress">
-            <div class="carousel-progress-bar" data-progress></div>
-          </div>
-        </div>
       </div>
-    </section>
+
+      <div class="carousel-controls">
+
+        <button class="carousel-btn" data-prev>
+          <svg viewBox="0 0 24 24">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+
+        <div class="carousel-dots" data-dots></div>
+
+        <button class="carousel-btn" data-next>
+          <svg viewBox="0 0 24 24">
+            <polyline points="9 6 15 12 9 18" />
+          </svg>
+        </button>
+
+      </div>
+
+      <div class="carousel-progress">
+        <div class="carousel-progress-bar" data-progress></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
   </main>
 
   <footer class="footer">
@@ -805,39 +661,20 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(el => {
-        if (el.isIntersecting) {
-          el.target.classList.add('visible');
-          observer.unobserve(el.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
-
-    document.querySelectorAll('img[data-placeholder]').forEach((img) => {
-      const showPlaceholder = () => {
-        if (img.classList.contains('is-missing')) return;
-        img.classList.add('is-missing');
-        const placeholder = document.createElement('div');
-        placeholder.className = 'image-placeholder';
-        placeholder.textContent = `Añade ${img.dataset.placeholder}`;
-        img.insertAdjacentElement('afterend', placeholder);
-      };
-      img.addEventListener('error', showPlaceholder, { once: true });
-      if (img.complete && img.naturalWidth === 0) showPlaceholder();
-    });
-
     document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+
       const track = carousel.querySelector('.carousel-track');
       const dotsContainer = carousel.querySelector('[data-dots]');
       const progressBar = carousel.querySelector('[data-progress]');
       const prevBtn = carousel.querySelector('[data-prev]');
       const nextBtn = carousel.querySelector('[data-next]');
       const slides = Array.from(track.querySelectorAll('.carousel-slide'));
-      const autoplay = carousel.dataset.autoplay !== 'false';
+
+      const autoplay =
+        carousel.dataset.autoplay !== 'false';
+
       const total = slides.length;
+
       let current = 0;
       let autoPlayTimer = null;
 
@@ -848,46 +685,91 @@
       }
 
       function getMaxIndex() {
-        return Math.max(0, total - getVisibleSlides());
+        return Math.max(
+          0,
+          total - getVisibleSlides()
+        );
       }
 
       function buildDots() {
+
         dotsContainer.innerHTML = '';
+
         for (let i = 0; i <= getMaxIndex(); i++) {
-          const dot = document.createElement('button');
-          dot.className = 'carousel-dot' + (i === current ? ' active' : '');
+
+          const dot =
+            document.createElement('button');
+
+          dot.className =
+            'carousel-dot' +
+            (i === current ? ' active' : '');
+
           dot.addEventListener('click', () => goTo(i));
+
           dotsContainer.appendChild(dot);
         }
       }
 
       function updateCarousel() {
-        const slideWidth = slides[0].offsetWidth;
-        current = Math.min(current, getMaxIndex());
-        track.style.transform = `translateX(-${current * slideWidth}px)`;
 
-        dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-          dot.classList.toggle('active', index === current);
-        });
+        const slideWidth =
+          slides[0].getBoundingClientRect().width;
 
-        progressBar.style.width = ((current + 1) / (getMaxIndex() + 1) * 100) + '%';
+        current =
+          Math.min(current, getMaxIndex());
+
+        const translate =
+          current * slideWidth;
+
+        track.style.transform =
+          `translate3d(-${translate}px,0,0)`;
+
+        dotsContainer
+          .querySelectorAll('.carousel-dot')
+          .forEach((dot, index) => {
+            dot.classList.toggle(
+              'active',
+              index === current
+            );
+          });
+
+        progressBar.style.width =
+          (
+            ((current + 1) /
+            (getMaxIndex() + 1)) * 100
+          ) + '%';
       }
 
       function goTo(index) {
+
         const maxIndex = getMaxIndex();
-        if (index > maxIndex) current = 0;
-        else if (index < 0) current = maxIndex;
-        else current = index;
+
+        if (index > maxIndex) {
+          current = 0;
+        } else if (index < 0) {
+          current = maxIndex;
+        } else {
+          current = index;
+        }
+
         updateCarousel();
         resetAutoPlay();
       }
 
-      function next() { goTo(current + 1); }
-      function prev() { goTo(current - 1); }
+      function next() {
+        goTo(current + 1);
+      }
+
+      function prev() {
+        goTo(current - 1);
+      }
 
       function startAutoPlay() {
+
         if (!autoplay) return;
-        autoPlayTimer = setInterval(next, 2800);
+
+        autoPlayTimer =
+          setInterval(next, 2800);
       }
 
       function resetAutoPlay() {
@@ -895,20 +777,27 @@
         startAutoPlay();
       }
 
-      prevBtn.addEventListener('click', prev);
-      nextBtn.addEventListener('click', next);
-      carousel.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
-      carousel.addEventListener('mouseleave', startAutoPlay);
+      prevBtn?.addEventListener('click', prev);
+      nextBtn?.addEventListener('click', next);
+
+      let resizeTimeout;
+
       window.addEventListener('resize', () => {
-        buildDots();
-        updateCarousel();
+
+        clearTimeout(resizeTimeout);
+
+        resizeTimeout = setTimeout(() => {
+          buildDots();
+          updateCarousel();
+        }, 80);
       });
 
       buildDots();
       updateCarousel();
       startAutoPlay();
+
     });
   </script>
-</body>
 
+</body>
 </html>
