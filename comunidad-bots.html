@@ -518,24 +518,51 @@
             style="margin-top: 18px; font-size: clamp(16px, 4vw, 18px); color: rgba(255,255,255,0.7); max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.6;">
             Nuestro compañero y mentor Nico ha conseguido estos resultados en Axi Select usando nuestro bot GPT.</p>
         </div>
-        <div
-          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 16px; padding: 0 10px;">
-          <figure class="audit-card" style="padding: 12px; background: rgba(255, 255, 255, 0.03);">
-            <img src="assets/axi1.png" alt="Retiro Axi Select 1" loading="lazy"
-              style="aspect-ratio: auto; object-fit: contain; border-radius: 8px;">
-          </figure>
-          <figure class="audit-card" style="padding: 12px; background: rgba(255, 255, 255, 0.03);">
-            <img src="assets/axi2.png" alt="Retiro Axi Select 2" loading="lazy"
-              style="aspect-ratio: auto; object-fit: contain; border-radius: 8px;">
-          </figure>
-          <figure class="audit-card" style="padding: 12px; background: rgba(255, 255, 255, 0.03);">
-            <img src="assets/axi3.png" alt="Retiro Axi Select 3" loading="lazy"
-              style="aspect-ratio: auto; object-fit: contain; border-radius: 8px;">
-          </figure>
-          <figure class="audit-card" style="padding: 12px; background: rgba(255, 255, 255, 0.03);">
-            <img src="assets/axi4.png" alt="Retiro Axi Select 4" loading="lazy"
-              style="aspect-ratio: auto; object-fit: contain; border-radius: 8px;">
-          </figure>
+        <div class="carousel" data-carousel data-autoplay="false">
+          <div class="carousel-wrapper">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <figure class="audit-card" style="padding: 12px; background: rgba(255, 255, 255, 0.03);">
+                  <img src="assets/axi1.png" alt="Retiro Axi Select 1" loading="lazy"
+                    style="aspect-ratio: auto; object-fit: contain; border-radius: 8px;">
+                </figure>
+              </div>
+              <div class="carousel-slide">
+                <figure class="audit-card" style="padding: 12px; background: rgba(255, 255, 255, 0.03);">
+                  <img src="assets/axi2.png" alt="Retiro Axi Select 2" loading="lazy"
+                    style="aspect-ratio: auto; object-fit: contain; border-radius: 8px;">
+                </figure>
+              </div>
+              <div class="carousel-slide">
+                <figure class="audit-card" style="padding: 12px; background: rgba(255, 255, 255, 0.03);">
+                  <img src="assets/axi3.png" alt="Retiro Axi Select 3" loading="lazy"
+                    style="aspect-ratio: auto; object-fit: contain; border-radius: 8px;">
+                </figure>
+              </div>
+              <div class="carousel-slide">
+                <figure class="audit-card" style="padding: 12px; background: rgba(255, 255, 255, 0.03);">
+                  <img src="assets/axi4.png" alt="Retiro Axi Select 4" loading="lazy"
+                    style="aspect-ratio: auto; object-fit: contain; border-radius: 8px;">
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn" data-prev>
+              <svg viewBox="0 0 24 24">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <div class="carousel-dots" data-dots></div>
+            <button class="carousel-btn" data-next>
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 6 15 12 9 18"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="carousel-progress">
+            <div class="carousel-progress-bar" data-progress></div>
+          </div>
         </div>
       </div>
     </section>
