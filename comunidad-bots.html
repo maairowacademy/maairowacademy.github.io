@@ -769,6 +769,73 @@
 
     </section>
 
+    <style>
+      .special-case-card {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        background: linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(31, 0, 84, .18) 34%, rgba(5, 5, 5, .98) 100%), var(--panel);
+        border: 1px solid var(--card-border);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 14px 50px rgba(0, 0, 0, .35), 0 0 0 1px rgba(121, 84, 255, .05);
+      }
+      .special-case-image {
+        flex: 1 1 35%;
+        max-width: 320px;
+      }
+      .special-case-image img {
+        width: 100%;
+        border-radius: 16px;
+        display: block;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      }
+      .special-case-content {
+        flex: 1 1 65%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .special-case-content p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255,255,255,0.8);
+      }
+      @media (max-width: 860px) {
+        .special-case-card {
+          flex-direction: column;
+          padding: 24px;
+          gap: 24px;
+        }
+        .special-case-image, .special-case-content {
+          width: 100%;
+          flex: none;
+          max-width: 100%;
+        }
+      }
+    </style>
+
+    <section class="section showcase" id="caso-exito">
+      <div class="showcase-inner">
+        <div class="section-header">
+          <span class="section-label">El caso de Rubén</span>
+          <h2>
+            Uno de nuestros casos de <span class="accent">éxito</span>
+          </h2>
+        </div>
+
+        <div class="special-case-card">
+          <div class="special-case-image">
+            <img src="assets/testimonioespecial.png" alt="El caso de Rubén" loading="lazy">
+          </div>
+          <div class="special-case-content">
+            <p>Este es uno de los testimonios más destacados de nuestra comunidad. Muestra cómo, <strong>asumiendo un mayor riesgo y obviamente haciendo las cosas bien, se pueden obtener resultados extraordinarios.</strong></p>
+            <p>Ten en cuenta que este resultado no es típico y depende de cada perfil. El peso no debe recaer tanto en el cliente o en tener una disciplina perfecta, ya que por mucha que tengas, a veces el mercado hace lo que quiere. Los resultados pasados no garantizan rendimientos futuros.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
