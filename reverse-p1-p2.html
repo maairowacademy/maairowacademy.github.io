@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema Reverse P1/P2 | MaairowAcademy</title>
+  <meta name="description"
+    content="Comienza a ser rentable ahora de una vez por todas sin analizar el gráfico ni cambiar de temporalidad.">
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap");
+
+    :root {
+      --black: #0d0d0d;
+      --panel: #090909;
+      --text: #ffffff;
+      --purple: #7954ff;
+      --card-border: #2b2b2b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--black);
+      overflow-x: hidden;
+    }
+
+    body {
+      min-width: 320px;
+      overflow-x: hidden;
+      color: var(--text);
+      font-family: "Onest", system-ui, sans-serif;
+      background:
+        url("data:image/svg+xml,%3Csvg width='420' height='520' viewBox='0 0 420 520' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.065' stroke-width='5' stroke-linecap='round'%3E%3Cpath d='M96 -58C170 34 138 106 73 158C7 210 -9 274 65 334C139 394 160 458 83 579'/%3E%3Cpath d='M274 -58C348 34 316 106 251 158C185 210 169 274 243 334C317 394 338 458 261 579'/%3E%3Cpath d='M452 -58C526 34 494 106 429 158C363 210 347 274 421 334C495 394 516 458 439 579'/%3E%3C/g%3E%3C/svg%3E") center top / 420px 520px repeat,
+        var(--black);
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    main,
+    section,
+    .showcase,
+    .showcase-inner,
+    .carousel {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .nav {
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      background: rgba(13, 13, 13, .92);
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav a {
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .82);
+      transition: .2s ease;
+      white-space: nowrap;
+    }
+
+    .nav a:hover,
+    .nav a[aria-current="page"] {
+      color: #fff;
+    }
+
+    .section {
+      width: 100%;
+      padding-left: 24px;
+      padding-right: 24px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .accent {
+      color: var(--purple);
+    }
+
+    .bots-hero {
+      padding-top: 110px;
+      padding-bottom: 40px;
+      text-align: center;
+    }
+
+    .bots-hero-inner {
+      width: min(940px, 100%);
+    }
+
+    .bots-hero h1 {
+      font-size: clamp(34px, 5vw, 66px);
+      line-height: .96;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .bots-hero p {
+      margin-top: 24px;
+      font-size: clamp(18px, 2.5vw, 22px);
+      line-height: 1.5;
+      color: rgba(255, 255, 255, .75);
+      font-weight: 500;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .video-shell {
+      width: min(860px, 100%);
+      margin: 46px auto 0;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: #000;
+      box-shadow:
+        0 20px 70px rgba(0, 0, 0, .45),
+        0 0 0 1px rgba(121, 84, 255, .06);
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .hero-action {
+      width: min(360px, 100%);
+      margin: 34px auto 0;
+    }
+
+    .button {
+      width: 100%;
+      min-height: 58px;
+      border-radius: 12px;
+      background: #f5f5f5;
+      color: #171717;
+      font-size: 17px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .18s ease;
+    }
+
+    .button:hover {
+      transform: scale(1.02);
+    }
+
+    .showcase {
+      padding-top: 40px;
+      padding-bottom: 82px;
+    }
+
+    .showcase-inner {
+      width: min(1080px, 100%);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(121, 84, 255, .22);
+      background: rgba(121, 84, 255, .08);
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(30px, 4vw, 56px);
+      line-height: 1.02;
+      font-weight: 900;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-wrapper {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform .55s cubic-bezier(.4, 0, .2, 1);
+      will-change: transform;
+      touch-action: pan-y;
+      min-width: 0;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    .carousel-slide {
+      flex: 0 0 50%;
+      /* Make 2 cards fit desktop well */
+      width: 50%;
+      padding: 0 12px;
+      min-width: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .carousel-slide.feat-slide {
+      flex: 0 0 33.3333%;
+      width: 33.3333%;
+    }
+
+    .audit-card,
+    .testimonial-card,
+    .feature-card {
+      width: 100%;
+      min-width: 0;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--card-border);
+      background:
+        linear-gradient(180deg,
+          rgba(255, 255, 255, .08),
+          rgba(31, 0, 84, .18) 34%,
+          rgba(5, 5, 5, .98) 100%),
+        var(--panel);
+
+      box-shadow:
+        0 14px 50px rgba(0, 0, 0, .35),
+        0 0 0 1px rgba(121, 84, 255, .05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .audit-card img,
+    .testimonial-card img {
+      width: 100%;
+      display: block;
+      max-width: 100%;
+    }
+
+    .audit-card img {
+      aspect-ratio: 1654 / 646;
+      object-fit: cover;
+    }
+
+    .testimonial-card img {
+      object-fit: contain;
+      background: #000;
+    }
+
+    .audit-card figcaption,
+    .feature-card .content {
+      padding: 24px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .audit-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .audit-text {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .carousel-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .1);
+      background: rgba(255, 255, 255, .04);
+      color: rgba(255, 255, 255, .7);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .carousel-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(255, 255, 255, .18);
+      transition: .25s ease;
+      cursor: pointer;
+    }
+
+    .carousel-dot.active {
+      width: 28px;
+      background: var(--purple);
+    }
+
+    .carousel-progress {
+      width: min(320px, 70%);
+      height: 2px;
+      background: rgba(255, 255, 255, .08);
+      margin: 18px auto 0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .carousel-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--purple), #a78bfa);
+      transition: width .3s ease;
+    }
+
+    .footer {
+      padding: 32px 24px;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      text-align: center;
+      color: rgba(255, 255, 255, .45);
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    @media (max-width: 860px) {
+
+      .section {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .bots-hero h1 {
+        font-size: clamp(30px, 8vw, 52px);
+      }
+
+      .carousel-slide {
+        /* Prevent vertical stacking, keep horizontal scroll/swipe active */
+        flex: 0 0 85%;
+        width: 85%;
+      }
+
+      .carousel-slide.feat-slide {
+        flex: 0 0 85%;
+        width: 85%;
+      }
+    }
+
+    @media (max-width: 520px) {
+
+      .nav {
+        gap: 16px;
+        height: 52px;
+      }
+
+      .nav a {
+        font-size: 13px;
+      }
+
+      .section {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .bots-hero {
+        padding-top: 94px;
+        padding-bottom: 30px;
+      }
+
+      .bots-hero h1 {
+        font-size: clamp(28px, 9vw, 42px);
+        line-height: 1.02;
+      }
+
+      .showcase {
+        padding-top: 30px;
+        padding-bottom: 60px;
+      }
+
+      .section-header h2 {
+        font-size: clamp(28px, 10vw, 40px);
+      }
+
+      .carousel-controls {
+        gap: 12px;
+      }
+
+      .carousel-btn {
+        width: 38px;
+        height: 38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <a href="https://maairowacademy.com">Inicio</a>
+    <a href="comunidad-bots.html">Comunidad de bots</a>
+    <a href="#" aria-current="page">Reverse P1/P2</a>
+  </nav>
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="section bots-hero">
+      <div class="bots-hero-inner">
+        <h1>
+          SISTEMA <span class="accent">REVERSE P1 / P2</span>
+        </h1>
+        <p>Comienza a ser rentable ahora de una vez por todas sin analizar el gráfico ni cambiar de temporalidad
+          operando en contra de un indicador.</p>
+      </div>
+    </section>
+
+    <!-- BLOQUE SOCIAL PROOF -->
+    <section class="section showcase" id="social-proof">
+      <div class="showcase-inner">
+        <div class="section-header">
+          <span class="section-label">Casos de Éxito</span>
+          <h2>
+            Resultados de <span class="accent">nuestros alumnos</span>
+          </h2>
+        </div>
+
+        <div class="carousel" data-carousel data-autoplay="false">
+          <div class="carousel-wrapper">
+            <div class="carousel-track">
+              <!-- Card 1 -->
+              <div class="carousel-slide">
+                <figure class="audit-card">
+                  <img src="https://via.placeholder.com/1654x646/090909/ffffff?text=Captura+Retiro/Certificado"
+                    alt="Captura de retiro" loading="lazy">
+                  <figcaption>
+                    <div class="audit-title">
+                      +11.000$ retirados
+                    </div>
+                    <div class="audit-text">
+                      Con Reverse P1/P2 en menos de 3 meses
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="carousel-slide">
+                <figure class="audit-card">
+                  <img src="https://via.placeholder.com/1654x646/090909/ffffff?text=Testimonio+Dani"
+                    alt="Testimonio de Dani" loading="lazy">
+                  <figcaption>
+                    <div class="audit-title">
+                      Otros ya lo están haciendo
+                    </div>
+                    <div class="audit-text">
+                      Dani, después de cuatro años perdiendo, consiguió fondearse y hacer su primer retiro en menos de
+                      un mes.
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-controls">
+            <button class="carousel-btn" data-prev>
+              <svg viewBox="0 0 24 24">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <div class="carousel-dots" data-dots></div>
+            <button class="carousel-btn" data-next>
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 6 15 12 9 18"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="carousel-progress">
+            <div class="carousel-progress-bar" data-progress></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARRUSEL VERTICAL DE CARACTERÍSTICAS -->
+    <section class="section showcase" id="caracteristicas" style="padding-top: 20px;">
+      <div class="showcase-inner">
+        <div class="section-header">
+          <span class="section-label">Características</span>
+          <h2>
+            Por qué este sistema <span class="accent">funciona</span>
+          </h2>
+        </div>
+
+        <div class="carousel" data-carousel data-autoplay="true">
+          <div class="carousel-wrapper">
+            <div class="carousel-track">
+
+              <!-- Slide 1 -->
+              <div class="carousel-slide feat-slide">
+                <div class="feature-card">
+                  <div class="content">
+                    <div class="audit-title">Temporalidad M30</div>
+                    <div class="audit-text">
+                      No necesitas estar cambiando de temporalidad en ningún momento. Solo mirarás el gráfico en 30
+                      minutos.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="carousel-slide feat-slide">
+                <div class="feature-card">
+                  <div class="content">
+                    <div class="audit-title">Sin analizar nada</div>
+                    <div class="audit-text">
+                      Olvídate de trazar líneas y dibujitos en el gráfico. Cuando el indicador dé una señal de compra o
+                      de venta haremos lo contrario. Fin.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="carousel-slide feat-slide">
+                <div class="feature-card">
+                  <div class="content">
+                    <div class="audit-title">¿En qué pares funciona?</div>
+                    <div class="audit-text">
+                      La estrategia está disponible para CHFJPY y XAUUSD.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="carousel-slide feat-slide">
+                <div class="feature-card">
+                  <div class="content">
+                    <div class="audit-title">Señales</div>
+                    <div class="audit-text">
+                      Mientras aprendes el sistema podrás copiar todas las operaciones ya que las compartiremos a diario
+                      en tiempo real, además de enviar la explicación de cada operación.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="carousel-controls">
+            <button class="carousel-btn" data-prev>
+              <svg viewBox="0 0 24 24">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <div class="carousel-dots" data-dots></div>
+            <button class="carousel-btn" data-next>
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 6 15 12 9 18"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="carousel-progress">
+            <div class="carousel-progress-bar" data-progress></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE VIDEO Y CTA FINAL -->
+    <section class="section showcase" id="acceder" style="padding-top: 20px;">
+      <div class="showcase-inner">
+        <div class="section-header" style="margin-bottom: 34px;">
+          <h2>⬇️ COMO ACCEDER AHORA ⬇️</h2>
+        </div>
+        <div class="video-shell" style="margin-top: 0;">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/Moo3Vn3l9kk" title="Sistema Reverse P1/P2" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="hero-action">
+          <a class="button" href="https://buy.stripe.com/4gMcN5bf5diHcyJcJI4AU31" target="_blank"
+            rel="noopener noreferrer">
+            Acceder al Sistema
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>Sitio creado por el equipo de MaairowAcademy</div>
+    <div>© Copyright 2026 MaairowAcademy</div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+      const track = carousel.querySelector('.carousel-track');
+      const dotsContainer = carousel.querySelector('[data-dots]');
+      const progressBar = carousel.querySelector('[data-progress]');
+      const prevBtn = carousel.querySelector('[data-prev]');
+      const nextBtn = carousel.querySelector('[data-next]');
+      const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+      const autoplay = carousel.dataset.autoplay !== 'false';
+      const total = slides.length;
+
+      let current = 0;
+      let autoPlayTimer = null;
+
+      function getVisibleSlides() {
+        if (window.innerWidth <= 860) return 1;
+
+        // For feature carousel, show 3 on desktop. For social proof with 2 items, show 2.
+        const isFeat = slides[0].classList.contains('feat-slide');
+        return isFeat ? Math.min(3, total) : Math.min(2, total);
+      }
+
+      function getMaxIndex() {
+        return Math.max(0, total - getVisibleSlides());
+      }
+
+      function buildDots() {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i <= getMaxIndex(); i++) {
+          const dot = document.createElement('button');
+          dot.className = 'carousel-dot' + (i === current ? ' active' : '');
+          dot.addEventListener('click', () => goTo(i));
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function updateCarousel() {
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        current = Math.min(current, getMaxIndex());
+        const translate = current * slideWidth;
+        track.style.transform = `translate3d(-${translate}px,0,0)`;
+
+        dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+          dot.classList.toggle('active', index === current);
+        });
+
+        progressBar.style.width = (((current + 1) / (getMaxIndex() + 1)) * 100) + '%';
+      }
+
+      function goTo(index) {
+        const maxIndex = getMaxIndex();
+        if (index > maxIndex) {
+          current = 0;
+        } else if (index < 0) {
+          current = maxIndex;
+        } else {
+          current = index;
+        }
+        updateCarousel();
+        resetAutoPlay();
+      }
+
+      function next() {
+        goTo(current + 1);
+      }
+
+      function prev() {
+        goTo(current - 1);
+      }
+
+      function startAutoPlay() {
+        if (!autoplay) return;
+        autoPlayTimer = setInterval(next, 3000);
+      }
+
+      function resetAutoPlay() {
+        clearInterval(autoPlayTimer);
+        startAutoPlay();
+      }
+
+      prevBtn?.addEventListener('click', prev);
+      nextBtn?.addEventListener('click', next);
+
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          buildDots();
+          updateCarousel();
+        }, 80);
+      });
+
+      buildDots();
+      updateCarousel();
+      startAutoPlay();
+    });
+  </script>
+
+</body>
+
+</html>
